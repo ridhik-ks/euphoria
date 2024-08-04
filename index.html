@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Euphoria</title>
+</head>
+<body>
+    <header class="header">
+        <img src="assets/Logo.svg" alt="Logo" class="logo">
+        <nav>
+            <a href="#Shop">Shop</a>
+            <a href="#Men">Men</a>
+            <a href="#Women">Women</a>
+            <a href="#Combos">Combos</a>
+            <a href="#Joggers">Joggers</a>
+        </nav>
+        <div class="header-right">
+            <img src="assets/search.svg" alt="search" class="search">
+                <input type="text" placeholder="Search">
+            <div class="iconContainer">
+                <a><img src="assets/wishlist.svg" alt="wishlist" class="icon"></a>
+            </div>
+            <div class="iconContainer">
+                <a><img src="assets/account.svg" alt="account" class="icon"></a>
+            </div>
+            <div class="iconContainer">
+                <a><img src="assets/cart.svg" alt="cart" class="icon"></a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="leftBoldArrow">
+                <img src="assets/left-arrow-bold.svg" alt="leftBoldArrow">
+            </div>
+            <div class="hero-text">
+                <h2>T-Shirt / Tops</h2>
+                <h1>Summer Value Pack</h1>
+                <p>cool / colorful / comfy</p>
+                <button>Shop Now</button>
+            </div>
+            <div class="rightBoldArrow">
+                <img src="assets/right-arrow-bold.svg" alt="right">
+            </div>
+        </section>
+        <section class="promotion">
+            <div class="promotion-item" style="background-image: url('assets/bg-2.jpg');">
+                <div class="promotion-text">
+                    <p class="low">Low Price</p>
+                    <h2>High Coziness</h2>
+                    <p>UPTO 50% OFF</p>
+                    <a href="#">Explore Items</a>
+                </div>
+            </div>
+            <div class="promotion-item" style="background-image: url('assets/bg-3.jpg');">
+                <div class="promotion-text">
+                    <p class="low">Beyoung Presents</p>
+                    <h2>Breezy Summer Style</h2>
+                    <p>UPTO 50% OFF</p>
+                    <a href="#">Explore Items</a>
+                </div>
+            </div>
+        </section>
+        <section class="new-arrival">
+            <div class="head">
+                <div class="line"></div>
+                <h2 style="margin-left: 26px;">New Arrival</h2>
+            </div>
+            <div class="arrival-items" >
+                <img src="assets/arrow-left.svg"/>
+                <script>
+                    const items = [
+                        'Knitted Joggers',
+                        'Full Sleeve',
+                        'Artist T-Shirts',
+                        'Short Skirts'
+                    ];
+            
+                    const arrivalItemsContainer = document.querySelector('.arrival-items');
+            
+                    items.forEach(item => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.classList.add('item');
+            
+                        const cardDiv = document.createElement('div');
+                        cardDiv.classList.add('card');
+            
+                        const itemName = document.createElement('p');
+                        itemName.textContent = item;
+            
+                        itemDiv.appendChild(cardDiv);
+                        itemDiv.appendChild(itemName);
+            
+                        arrivalItemsContainer.insertBefore(itemDiv, arrivalItemsContainer.children[arrivalItemsContainer.children.length - 1]);
+                    });
+                </script>
+                <img src="assets/arrow-right.svg"/>
+            </div>
+        </section>
+        <section class="featured">
+            <div class="imageLeft">
+            <div class="featured-text">
+                <h2>We Made Your Everyday Fashion Better</h2>
+                <p>In our journey to improve everyday fashion, euphoria presents EVERYDAY wear range - Comfortable & Affordable fashion 24/7</p>
+                <button>Shop Now</button>
+            </div>
+            </div>
+            <div class="imageRight"></div>
+        </section>
+        <section class="categories">
+            <div class="head">
+                <div class="line"></div>
+                <h2 style="margin-left: 26px;">Categories For Men</h2>
+            </div>
+            <div class="category-items"></div>
+    
+            <div class="head">
+                <div class="line"></div>
+                <h2 style="margin-left: 26px;">Categories For Women</h2>
+            </div>
+            <div class="wcategory-items"></div>
+        </section>
+    
+        <script>
+            const menCategories = [
+                { name: 'Shirts', description: 'Explore Now!' },
+                { name: 'Printed T-Shirts', description: 'Explore Now!' },
+                { name: 'Plain T-Shirt', description: 'Explore Now!' },
+                { name: 'Polo T-Shirt', description: 'Explore Now!' },
+                { name: 'Hoodies & Sweatshirts', description: 'Explore Now!' },
+                { name: 'Jeans', description: 'Explore Now!' },
+                { name: 'Activewear', description: 'Explore Now!' },
+                { name: 'Boxers', description: 'Explore Now!' }
+            ];
+    
+            const womenCategories = [
+                { name: 'Hoodies & Sweatshirts', description: 'Explore Now!' },
+                { name: 'Coats & Parkas', description: 'Explore Now!' },
+                { name: 'Tees & T-Shirts', description: 'Explore Now!' },
+                { name: 'Boxers', description: 'Explore Now!' }
+            ];
+    
+            function createCategoryItem(category) {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('item');
+    
+                const cardDiv = document.createElement('div');
+                cardDiv.classList.add('card');
+    
+                const catMenDiv = document.createElement('div');
+                catMenDiv.classList.add('catMen');
+    
+                const leftTextDiv = document.createElement('div');
+                leftTextDiv.classList.add('leftText');
+    
+                const boldP = document.createElement('p');
+                boldP.classList.add('bold');
+                boldP.textContent = category.name;
+    
+                const descP = document.createElement('p');
+                descP.textContent = category.description;
+    
+                leftTextDiv.appendChild(boldP);
+                leftTextDiv.appendChild(descP);
+    
+                const rightTextDiv = document.createElement('div');
+                rightTextDiv.classList.add('rightText');
+    
+                const img = document.createElement('img');
+                img.src = 'assets/arrow-right.svg';
+    
+                rightTextDiv.appendChild(img);
+    
+                catMenDiv.appendChild(leftTextDiv);
+                catMenDiv.appendChild(rightTextDiv);
+    
+                itemDiv.appendChild(cardDiv);
+                itemDiv.appendChild(catMenDiv);
+    
+                return itemDiv;
+            }
+    
+            const menCategoryContainer = document.querySelector('.category-items');
+            const womenCategoryContainer = document.querySelector('.wcategory-items');
+    
+            menCategories.forEach(category => {
+                menCategoryContainer.appendChild(createCategoryItem(category));
+            });
+    
+            womenCategories.forEach(category => {
+                womenCategoryContainer.appendChild(createCategoryItem(category));
+            });
+        </script>
+        <section class="top-brands">
+            <h2>Top Brands Deal</h2>
+            <p>Up to <span class="highlight">60%</span> off on brands</p>
+            <div class="brands">
+                <div class="brands-container">
+                    <img src="assets/nike.jpg" alt="Nike">
+                </div>
+                <div class="brands-container">
+                    <img src="assets/H&M.jpg" alt="H&M">
+                </div>
+                <div class="brands-container">
+                    <img src="assets/levis.jpg" alt="Levi's">
+                </div>
+                <div class="brands-container">
+                    <img src="assets/USPA.jpg" alt="US Polo Assn.">
+                </div>
+                <div class="brands-container">
+                    <img src="assets/puma.jpg" alt="Puma">
+                </div>
+            </div>
+        </section>
+        <section class="limelight">
+            <div class="head">
+                <div class="line"></div>
+                <h2 style="margin-left: 26px;">In The Limelight</h2>
+            </div>
+            <div class="limelight-items"></div>
+        </section>
+    
+        <script>
+            const limelightItems = [
+                { name: 'Black Sweatshirt with ....', description: 'Jhanvi’s  Brand', price: '$123.00' },
+                { name: 'line Pattern Black H...', description: 'AS’s  Brand', price: '$37.00' },
+                { name: 'Black Shorts', description: 'MM’s  Brand', price: '$37.00' },
+                { name: 'Levender Hoodie with ....', description: 'Nike’s  Brand', price: '$119.00' }
+            ];
+    
+            function createLimelightItem(item) {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('item');
+    
+                const cardDiv = document.createElement('div');
+                cardDiv.classList.add('card');
+    
+                const catMenDiv = document.createElement('div');
+                catMenDiv.classList.add('catMen');
+    
+                const leftTextDiv = document.createElement('div');
+                leftTextDiv.classList.add('leftText');
+    
+                const boldP = document.createElement('p');
+                boldP.classList.add('bold');
+                boldP.textContent = item.name;
+    
+                const descP = document.createElement('p');
+                descP.textContent = item.description;
+    
+                leftTextDiv.appendChild(boldP);
+                leftTextDiv.appendChild(descP);
+    
+                const rightTextDiv = document.createElement('div');
+                rightTextDiv.classList.add('rightText');
+    
+                const priceSpan = document.createElement('span');
+                priceSpan.textContent = item.price;
+    
+                rightTextDiv.appendChild(priceSpan);
+    
+                catMenDiv.appendChild(leftTextDiv);
+                catMenDiv.appendChild(rightTextDiv);
+    
+                const heartDiv = document.createElement('div');
+                heartDiv.classList.add('heart');
+    
+                const heartImg = document.createElement('img');
+                heartImg.src = 'assets/wishlist.svg';
+    
+                heartDiv.appendChild(heartImg);
+    
+                itemDiv.appendChild(cardDiv);
+                itemDiv.appendChild(catMenDiv);
+                itemDiv.appendChild(heartDiv);
+    
+                return itemDiv;
+            }
+    
+            const limelightContainer = document.querySelector('.limelight-items');
+    
+            limelightItems.forEach(item => {
+                limelightContainer.appendChild(createLimelightItem(item));
+            });
+        </script>
+        <section class="feedback">
+            <div class="head">
+                <div class="line"></div>
+                <h2 style="margin-left: 26px;">Feedback</h2>
+            </div>
+            <div class="feedback-items"></div>
+        </section>
+    
+        <script>
+            const feedbacks = [
+                {
+                    name: 'Floyd Miles',
+                    image: 'assets/span-1.svg',
+                    stars: 5,
+                    feedback: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'
+                },
+                {
+                    name: 'Ronald Richards',
+                    image: 'assets/span-2.svg',
+                    stars: 3,
+                    feedback: 'Ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'
+                },
+                {
+                    name: 'Savannah Nguyen',
+                    image: 'assets/span-3.svg',
+                    stars: 4,
+                    feedback: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'
+                }
+            ];
+    
+            function createStarRating(starCount) {
+                const starsDiv = document.createElement('div');
+                starsDiv.classList.add('stars');
+                for (let i = 0; i < starCount; i++) {
+                    const starImg = document.createElement('img');
+                    starImg.src = 'assets/star.svg';
+                    starsDiv.appendChild(starImg);
+                }
+                return starsDiv;
+            }
+    
+            function createFeedbackItem(feedback) {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('feedback-item');
+    
+                const feedbackLeftDiv = document.createElement('div');
+                feedbackLeftDiv.classList.add('feedback-left');
+    
+                const img = document.createElement('img');
+                img.src = feedback.image;
+    
+                const starsDiv = createStarRating(feedback.stars);
+    
+                feedbackLeftDiv.appendChild(img);
+                feedbackLeftDiv.appendChild(starsDiv);
+    
+                const nameH3 = document.createElement('h3');
+                nameH3.textContent = feedback.name;
+    
+                const feedbackP = document.createElement('p');
+                feedbackP.innerHTML = feedback.feedback;
+    
+                itemDiv.appendChild(feedbackLeftDiv);
+                itemDiv.appendChild(nameH3);
+                itemDiv.appendChild(feedbackP);
+    
+                return itemDiv;
+            }
+    
+            const feedbackContainer = document.querySelector('.feedback-items');
+    
+            feedbacks.forEach(feedback => {
+                feedbackContainer.appendChild(createFeedbackItem(feedback));
+            });
+        </script>
+    </main>
+    <footer>
+        <div class="footer-sections">
+            <div class="footer-section">
+                <h3>Need Help</h3>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#track">Track Order</a></li>
+                    <li><a href="#returns">Returns & Refunds</a></li>
+                    <li><a href="#faqs">FAQs</a></li>
+                    <li><a href="#career">Career</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#affiliate">Affiliate</a></li>
+                    <li><a href="#collaboration">Collaboration</a></li>
+                    <li><a href="#media">Media</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>More Info</h3>
+                <ul>
+                    <li><a href="#terms">Terms and Conditions</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#shipping">Shipping Policy</a></li>
+                    <li><a href="#sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Location</h3>
+                <ul>
+                    <li><a href="#email">support@euphoria.in</a></li>
+                    <li><a href="#address">Eklingpura Chouraha, Ahmedabad Main Road</a></li>
+                    <li><a href="#map">(NH 8- Near Mahadev Hotel) Udaipur, India- 313002</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="download-app">
+                <div class="download-app-left">
+                    <img src="assets/facebook.svg"/>
+                    <img src="assets/instagram.svg"/>
+                    <img src="assets/twitter.svg"/>
+                    <img src="assets/linkedin.svg"/>
+                </div>
+                <div class="download-app-right">
+                    <h3>Download The App</h3>
+                    <div class="download-app-image">
+                        <div class="playstore">
+                            <div class="playstore-left">
+                                <a href="#"><img src="assets/playstore.svg" alt="Google Play"></a>
+                             </div>
+                             <div class="playstore-right">
+                                <span> android app on</span>
+                                <p>Google Play</p>
+                             </div>    
+                        </div>
+                        <div class="appstore">
+                            <div class="appstore-left">
+                                <a href="#"><img src="assets/phone.svg" alt="App Store"></a>
+                             </div>
+                             <div class="appstore-right">
+                                <span> Available on the</span>
+                                <p>App Store</p>
+                             </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            <div class="popular-categories">
+                <h3>Popular Categories</h3>
+                <img src="assets/arrow-down.svg"/>
+            </div>
+        </div>
+        <div class="footer-note">
+            <p>Copyright © 2023 Euphoria Folks Pvt Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
